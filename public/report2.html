@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>FREAK 취약점 보안 패치 적용결과 보고</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="author" content="Sleeping-Lion" />
+<!--[if IE]>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<![endif]-->
+<style>
+	article {margin-bottom:30px}
+</style>
+</head>
+<body>
+	<h1>FREAK 취약점 보안 패치 적용결과 보고</h1>
+	<article>
+		<h3>FREAK 취약점</h3>
+		<a href="https://www.krcert.or.kr/kor/data/secNoticeView.jsp?p_bulletin_writing_sequence=22573" target="_blank">FREAK 취약점 설명 보기</a>
+	</article>
+	<article>
+		<h3>감지 방법</h3>
+		<div>
+			<p>$openssl s_client -connect 27.101.100.22:443 -cipher EXPORT</p>
+		</div>		
+	</article>
+	<article>
+		<h3>프로그램 실행결과 </h3>
+		<div>
+			<h4>패치 미적용시</h4>
+			<img src="test3.png" />
+		</div>
+		<div>
+			<h4>패치 적용후</h4>
+			<img src="test4.png" />
+		</div>
+	</article>
+	<article>
+		<h3>모든 서버 이상없음 확인</h3>
+	</article>
+</body>
+</html>

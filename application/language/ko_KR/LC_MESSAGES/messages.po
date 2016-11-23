@@ -1,0 +1,344 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sl\n"
+"POT-Creation-Date: 2015-08-21 11:30+0900\n"
+"PO-Revision-Date: 2016-09-12 11:23+0900\n"
+"Last-Translator: \n"
+"Language-Team: sl <admin@sleepinglion.pe.kr>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../../..\n"
+
+#: ../../../controllers/SL.php:27 ../../../controllers/Communities.php:60
+msgid "default page title"
+msgstr "Next"
+
+#: ../../../controllers/Users.php:78
+msgid "successfully updated profile"
+msgstr "사용자 정보가 업데이트 되었습니다."
+
+#: ../../../controllers/Users.php:103
+msgid "already login, logout first"
+msgstr "이미 로그인 되어있습니다."
+
+#: ../../../controllers/Users.php:125 ../../../controllers/Users.php:128
+msgid "no match id or password"
+msgstr "아이디 또는 비밀번호가 맞지 않습니다."
+
+#: ../../../controllers/Communities.php:130
+#: ../../../controllers/Communities.php:179
+msgid "title"
+msgstr "제목"
+
+#: ../../../controllers/Communities.php:131
+#: ../../../controllers/Communities.php:180
+msgid "description"
+msgstr "설명글"
+
+#: ../../../controllers/Communities.php:225
+msgid "successfully add new article"
+msgstr "글이 써졌습니다."
+
+#: ../../../controllers/Communities.php:228
+msgid "unable to add new article"
+msgstr "글을 쓸수 없습니다."
+
+#: ../../../controllers/Communities.php:259
+msgid "id"
+msgstr "ID"
+
+#: ../../../controllers/Communities.php:267
+#: ../../../controllers/Communities.php:275
+msgid "already recommended article"
+msgstr "이미 추천한 게시물입니다."
+
+#: ../../../models/Community.php:19 ../../../models/Community.php:80
+#: ../../../views/communities/index_list.php:16
+#: ../../../views/communities/add.php:6 ../../../views/communities/edit.php:6
+#: ../../../views/communities/comment/add.php:16
+#: ../../../views/layout/elements/search.php:3
+msgid "label_title"
+msgstr "제목"
+
+#: ../../../models/Community.php:30 ../../../views/communities/add.php:22
+#: ../../../views/communities/edit.php:22
+#: ../../../views/communities/comment/add.php:20
+#: ../../../views/communities/comment/comment/add.php:14
+#: ../../../views/layout/elements/search.php:4
+msgid "label_content"
+msgstr "내용"
+
+#: ../../../models/Community.php:39
+#: ../../../views/layout/elements/search.php:5
+msgid "label_title+content"
+msgstr "제목+내용"
+
+#: ../../../views/communities/bottom_menu.php:3
+msgid "index_link"
+msgstr "목록으로"
+
+#: ../../../views/communities/bottom_menu.php:7
+#: ../../../views/communities/view.php:35
+#: ../../../views/communities/index.php:56
+#: ../../../views/communities/index.php:118
+#: ../../../views/communities/comment/index.php:21
+#: ../../../views/communities/comment/comment/index.php:17
+msgid "delete_link"
+msgstr "삭제"
+
+#: ../../../views/communities/bottom_menu.php:8
+#: ../../../views/communities/view.php:35
+#: ../../../views/communities/index.php:57
+#: ../../../views/communities/index.php:119
+msgid "edit_link"
+msgstr "수정"
+
+#: ../../../views/communities/_index.php:2
+msgid "notice"
+msgstr "공지사항"
+
+#: ../../../views/communities/_index.php:13
+#: ../../../views/communities/index_list.php:35
+#: ../../../views/communities/index.php:144
+#: ../../../views/communities/index_l.php:20
+#: ../../../views/communities/index_card.php:18
+msgid "no_data"
+msgstr "글이 없습니다"
+
+#: ../../../views/communities/_index.php:15
+#: ../../../views/communities/index.php:44
+#: ../../../views/communities/index.php:106
+msgid "link_more"
+msgstr "더보기"
+
+#: ../../../views/communities/index_list.php:15
+msgid "label_id"
+msgstr "ID"
+
+#: ../../../views/communities/index_list.php:17
+msgid "label_comment_count"
+msgstr ""
+
+#: ../../../views/communities/index_list.php:18
+msgid "label_count"
+msgstr ""
+
+#: ../../../views/communities/index_list.php:19
+msgid "label_created_at"
+msgstr "작성일시"
+
+#: ../../../views/communities/index_list.php:45
+#: ../../../views/communities/index.php:6
+#: ../../../views/communities/index_l.php:26
+#: ../../../views/communities/index_card.php:24
+msgid "new_link"
+msgstr "새글 작성"
+
+#: ../../../views/communities/add.php:10
+#: ../../../views/communities/edit.php:10
+msgid "poll_title"
+msgstr "투표제목"
+
+#: ../../../views/communities/add.php:12 ../../../views/communities/add.php:13
+#: ../../../views/communities/add.php:33
+#: ../../../views/communities/edit.php:12
+#: ../../../views/communities/edit.php:13
+#: ../../../views/communities/edit.php:36
+#: ../../../views/communities/edit.php:44
+msgid "delete"
+msgstr "삭제"
+
+#: ../../../views/communities/add.php:15 ../../../views/communities/add.php:35
+#: ../../../views/communities/edit.php:15
+#: ../../../views/communities/edit.php:46
+msgid "add"
+msgstr "추가"
+
+#: ../../../views/communities/add.php:18
+#: ../../../views/communities/edit.php:18 ../../../views/users/add.php:39
+#: ../../../views/users/edit.php:25
+msgid "label_description"
+msgstr "목록 소개글"
+
+#: ../../../views/communities/add.php:26
+#: ../../../views/communities/edit.php:26
+msgid "label_tag"
+msgstr "태그"
+
+#: ../../../views/communities/add.php:30
+#: ../../../views/communities/edit.php:30 ../../../views/users/add.php:43
+#: ../../../views/users/edit.php:29
+msgid "label_photo"
+msgstr "사진"
+
+#: ../../../views/communities/add.php:37
+#: ../../../views/communities/edit.php:48
+#: ../../../views/communities/comment/add.php:23
+#: ../../../views/communities/comment/comment/add.php:17
+#: ../../../views/users/add.php:46 ../../../views/users/edit.php:38
+msgid "submit"
+msgstr "쓰기"
+
+#: ../../../views/communities/view.php:17
+#: ../../../views/communities/index.php:34
+#: ../../../views/communities/index.php:98
+msgid "Previous"
+msgstr "이전"
+
+#: ../../../views/communities/view.php:17
+#: ../../../views/communities/index.php:35
+#: ../../../views/communities/index.php:98
+msgid "Next"
+msgstr "다음"
+
+#: ../../../views/communities/view.php:42
+#: ../../../views/communities/index.php:65
+#: ../../../views/communities/index.php:127
+msgid "recommend"
+msgstr "추천"
+
+#: ../../../views/communities/view.php:43
+#: ../../../views/communities/index.php:10
+#: ../../../views/communities/index.php:11
+#: ../../../views/communities/index.php:66
+#: ../../../views/communities/index.php:128
+#: ../../../views/layout/elements/sns.php:6
+msgid "share"
+msgstr "공유"
+
+#: ../../../views/communities/view.php:47
+#: ../../../views/communities/index.php:70
+#: ../../../views/communities/index.php:132
+msgid "comment"
+msgstr "댓글"
+
+#: ../../../views/users/login.php:4 ../../../views/users/add.php:5
+#: ../../../views/users/edit.php:5 ../../../views/users/index.php:2
+msgid "not_insert_email"
+msgstr ""
+
+#: ../../../views/users/login.php:5 ../../../views/users/add.php:6
+#: ../../../views/users/edit.php:6 ../../../views/users/index.php:3
+msgid "not_insert_password"
+msgstr ""
+
+#: ../../../views/users/login.php:6 ../../../views/users/add.php:7
+#: ../../../views/users/edit.php:7 ../../../views/users/index.php:4
+msgid "invalid_email"
+msgstr ""
+
+#: ../../../views/users/login.php:7 ../../../views/users/add.php:8
+#: ../../../views/users/edit.php:8 ../../../views/users/index.php:5
+msgid "invalid_password"
+msgstr ""
+
+#: ../../../views/users/login.php:12 ../../../views/users/add.php:12
+#: ../../../views/users/edit.php:12 ../../../views/users/index.php:11
+msgid "label_email"
+msgstr "이메일"
+
+#: ../../../views/users/login.php:18 ../../../views/users/add.php:22
+#: ../../../views/users/index.php:17
+msgid "label_password"
+msgstr "비밀번호"
+
+#: ../../../views/users/login.php:27 ../../../views/users/index.php:26
+msgid "remember_email"
+msgstr "이메일 저장"
+
+#: ../../../views/users/login.php:34 ../../../views/users/index.php:33
+msgid "login"
+msgstr "로그인"
+
+#: ../../../views/users/agree.php:24
+msgid "disagree"
+msgstr "취소"
+
+#: ../../../views/users/agree.php:24
+msgid "agree"
+msgstr "동의"
+
+#: ../../../views/users/add.php:9 ../../../views/users/edit.php:9
+msgid "exists_email"
+msgstr "존재하는 이메일 입니다."
+
+#: ../../../views/users/add.php:16
+msgid "label_check_email_available"
+msgstr "이메일 중복확인"
+
+#: ../../../views/users/add.php:17
+msgid "check_email_available"
+msgstr ""
+
+#: ../../../views/users/add.php:27
+msgid "label_password_confirm"
+msgstr ""
+
+#: ../../../views/users/add.php:31 ../../../views/users/edit.php:17
+msgid "label_name"
+msgstr ""
+
+#: ../../../views/users/add.php:35 ../../../views/users/edit.php:21
+msgid "label_nickname"
+msgstr ""
+
+#: ../../../views/users/edit.php:33
+msgid "label_delete_photo"
+msgstr ""
+
+#: ../../../views/layout/elements/message.php:4
+#: ../../../views/layout/elements/sns.php:18
+msgid "close"
+msgstr "닫기"
+
+#: ../../../views/layout/elements/footer.php:2
+msgid "site_address"
+msgstr "미래를 여는 사람들"
+
+#: ../../../views/layout/elements/aside.php:3
+#: ../../../views/layout/elements/header.php:4
+msgid "menu"
+msgstr "메뉴"
+
+#: ../../../views/layout/elements/aside.php:7
+msgid "Show By Category"
+msgstr "분류로 보기"
+
+#: ../../../views/layout/elements/aside.php:9
+msgid "Show By Tag"
+msgstr "태그로 보기"
+
+#: ../../../views/layout/elements/aside.php:12
+msgid "Show My Commented"
+msgstr "내가 추천한글 보기"
+
+#: ../../../views/layout/elements/header.php:3
+msgid "page_title"
+msgstr "로고"
+
+#: ../../../views/layout/elements/header.php:8
+msgid "search"
+msgstr "검색"
+
+#: ../../../views/layout/elements/search.php:8
+msgid "insert search word"
+msgstr "검색어를 써주세요"
+
+#: ../../../views/layout/elements/search.php:10
+msgid "Search"
+msgstr "검색"
+
+#~ msgid "tag"
+#~ msgstr "태그"
+
+#~ msgid "logout"
+#~ msgstr "로그아웃"
+
+#~ msgid "link_login"
+#~ msgstr "로그인"

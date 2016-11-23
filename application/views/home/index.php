@@ -1,0 +1,1 @@
+<?php echo $Layout->element('tag_cloud') ?>
