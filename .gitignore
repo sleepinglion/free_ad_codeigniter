@@ -1,0 +1,7 @@
+.project
+public/uploads
+application/config/database.php
+application/config/config.php
+application/cache
+application/config/ftp.php
+application/config/s3.php
