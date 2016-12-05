@@ -12,7 +12,7 @@
   	<?php endif ?>  	
     <?php if($data['total']): ?>
     <?php foreach($data['list'] as $index=>$content): ?>
-    <div class="article col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="article col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <article class="community_contents">
         <div class="sl_content_main">
           <?php if($content['photo']['total']): ?>
@@ -63,7 +63,7 @@
                 </form>
               </div>
               <div class="btn-group" role="group" aria-label="..." style="float:right">
-                <button class="btn btn-default dropdown-toggle comment_btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" title="<?php echo _('comment') ?>"> 의견 <span class="comment_count"><?php echo $content['comment_count'] ?></span> <span class="caret"></span> </button>
+                <button class="btn btn-default dropdown-toggle comment_btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" title="<?php echo _('comment') ?>"> 의견 <span class="comment_count"><?php echo $content['article_comments_count'] ?></span> <span class="caret"></span> </button>
               </div>
             </div>
             <section class="comments" style="display:none">

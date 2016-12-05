@@ -3,6 +3,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once 'SL.php';
 
-class Community_comment extends SL_Model {
-	protected $table='community_comments';
+class Article_comment extends SL_Model {
+	protected $table='article_comments';
 }

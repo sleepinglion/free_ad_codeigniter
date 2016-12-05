@@ -49,24 +49,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'communities';
+$route['default_controller'] = 'articles';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['view/(:num)'] = 'communities/view/$1';
-$route['recommend'] = 'communities/recommend';
-$route['communities/(:num)'] = 'communities/index/$1';
-$route['communities/comments/add']='community_comments/add';
-$route['communities/comments/confirm_delete/(:num)']='community_comments/confirm_delete/$1';
-$route['communities/comments/delete/(:num)']='community_comments/delete/$1';
+$route['view/(:num)'] = 'articles/view/$1';
+$route['recommend'] = 'articles/recommend';
+$route['articles/(:num)'] = 'articles/index/$1';
+$route['articles/comments/add']='article_comments/add';
+$route['articles/comments/confirm_delete/(:num)']='article_comments/confirm_delete/$1';
+$route['articles/comments/delete/(:num)']='article_comments/delete/$1';
 
-$route['communities/comments/comments/add']='community_comment_comments/add';
-$route['communities/comments/comments/confirm_delete/(:num)']='community_comment_comments/confirm_delete/$1';
-$route['communities/comments/comments/delete/(:num)']='community_comment_comments/delete/$1';
+$route['articles/comments/comments/add']='article_comment_comments/add';
+$route['articles/comments/comments/confirm_delete/(:num)']='article_comment_comments/confirm_delete/$1';
+$route['articles/comments/comments/delete/(:num)']='article_comment_comments/delete/$1';
 
 $route['login'] = "users/login";
 $route['logout'] = "users/logout";
-$route['add'] = "communities/add";
-$route['edit'] = "communities/edit";
+$route['add'] = "articles/add";
+$route['edit'] = "articles/edit";
 
 

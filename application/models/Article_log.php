@@ -3,11 +3,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once 'SL.php';
 
-class Community_log extends SL_Model {
-	protected $table='community_logs';
+class Article_log extends SL_Model {
+	protected $table='artcile_logs';
 	
 	public function check_exists($id) {
-		$this -> pdo -> where(array('community_id' => $id, 'ip'=>ip2long($_SERVER['REMOTE_ADDR'])));
+		$this -> pdo -> where(array('article_id' => $id, 'ip'=>ip2long($_SERVER['REMOTE_ADDR'])));
 		if($this -> pdo -> count_all_results($this->table)) {
 			return true;
 		} else {

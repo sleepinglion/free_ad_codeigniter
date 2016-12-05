@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require 'SL.php';
 
-class Community_comments extends SL_Controller {
+class ARticle_comments extends SL_Controller {
 	public function add() {
 		$this -> load -> library('form_validation');
 		$this -> form_validation -> set_rules('content', 'Content', 'required|min_length[2]');

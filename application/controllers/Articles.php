@@ -2,28 +2,26 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require 'SL.php';
 
-class Communities extends SL_Controller {
+class Articles extends SL_Controller {
 	public function index($page = 0) {
 		$this -> load -> helper('sl');
 
-		$this -> load -> model('Community');
+		$this -> load -> model('Article');
 
 		$config['per_page'] = 8;
 		
-		$data = $this -> Community -> get_index($config['per_page'], $page);
+		$data = $this -> Article -> get_index($config['per_page'], $page);
 
 		
 		$this->load->model('Tag');
-		$data['tags']=$this->Tag->get_cloud('communities');
+		$data['tags']=$this->Tag->get_cloud('articles');
 		
 		
 		if($data['total']) {
-			$this -> load -> model('Community_photo');
-			$this -> load -> model('Poll');
+			$this -> load -> model('Article_photo');
 			foreach($data['list'] as $index=>$value) {
-				$data['list'][$index]['photo'] = $this -> Community_photo -> get_index_photo($value['id']);
-				$data['list'][$index]['comments'] = $this -> Community -> get_comments($value['id']);
-				$data['polls'] = $this -> Poll -> get_index_by_community_id($value['id']);
+				$data['list'][$index]['photo'] = $this -> Article_photo -> get_index_photo($value['id']);
+				$data['list'][$index]['comments'] = $this -> Article -> get_comments($value['id']);
 			}
 		}
 		
@@ -32,21 +30,21 @@ class Communities extends SL_Controller {
 			echo json_encode($data);
 		} else {
 			$this -> layout -> add_js('/js/index.js');
-			$this -> layout -> render('communities/index', array('data' => $data));
+			$this -> layout -> render('articles/index', array('data' => $data));
 		}
 	}
 
 	public function view($id) {
 		if($this->input->is_ajax_request()) {
-			$this -> load -> model('Community');
-			$content = $this -> Community -> get_content($id);
+			$this -> load -> model('Article');
+			$content = $this -> Article -> get_content($id);
 			
-			$this -> load -> model('Community_log');
+			$this -> load -> model('Article_log');
 
-			if (!$this -> Community_log -> check_exists($content['id'])) {
-				$this -> Community -> update_count_plus($content['id']);
+			if (!$this -> Article_log -> check_exists($content['id'])) {
+				$this -> Article -> update_count_plus($content['id']);
 			}
-			$this -> Community_log -> insert(array('community_id' => $content['id']));
+			$this -> Article_log -> insert(array('community_id' => $content['id']));
 			
 			echo $content['content'];
 			return true;
@@ -56,18 +54,18 @@ class Communities extends SL_Controller {
 		
 		$config['per_page'] = 8;
 
-		$data = $this -> Community -> get_index($config['per_page'], 0);
+		$data = $this -> Article -> get_index($config['per_page'], 0);
 		$this -> layout -> title_for_layout = _('default page title');
 		
 		$this->load->model('Tag');
 		$data['tags']=$this->Tag->get_cloud('blogs');
 		
 		if($data['total']) {
-			$this -> load -> model('Community_photo');
+			$this -> load -> model('Article_photo');
 			$this -> load -> model('Poll');
 			foreach($data['list'] as $index=>$value) {
-				$data['list'][$index]['photo'] = $this -> Community_photo -> get_index_photo($value['id']);
-				$data['list'][$index]['comments'] = $this -> Community -> get_comments($value['id']);
+				$data['list'][$index]['photo'] = $this -> Article_photo -> get_index_photo($value['id']);
+				$data['list'][$index]['comments'] = $this -> Article -> get_comments($value['id']);
 				$data['polls'] = $this -> Poll -> get_index_by_community_id($value['id']);
 			}
 		}
@@ -76,22 +74,22 @@ class Communities extends SL_Controller {
 		$data['is_view'] = true;
 		
 		$this->load->model('Tag');
-		$data['tags']=$this->Tag->get_cloud('communities');
+		$data['tags']=$this->Tag->get_cloud('articles');
 		
 		$this -> layout -> add_js('/js/view.js');
-		$this -> layout -> render('communities/index', array('data' => $data));
+		$this -> layout -> render('articles/index', array('data' => $data));
 	}
 
 	protected function view_content($id) {
 		$this -> load -> helper('sl');
 
-		$this -> load -> model('Community');
+		$this -> load -> model('Article');
 		
-		if(!$this -> Community -> get_count($id))
+		if(!$this -> Article -> get_count($id))
 			show_404();
 		
-		$data['content'] = $this -> Community -> get_content($id);
-		$data['content']['comments'] = $this -> Community -> get_comments($data['content']['id']);
+		$data['content'] = $this -> Article -> get_content($id);
+		$data['content']['comments'] = $this -> Article -> get_comments($data['content']['id']);
 		
 		
 		$this -> load -> model('Tag');
@@ -100,16 +98,16 @@ class Communities extends SL_Controller {
 		$this -> load -> model('Poll');
 		$data['content']['polls'] = $this -> Poll -> get_index_by_community_id($data['content']['id']);
 
-		$this -> load -> model('Community_log');
+		$this -> load -> model('Article_log');
 
-		if (!$this -> Community_log -> check_exists($data['content']['id'])) {
-			$this -> Community -> update_count_plus($data['content']['id']);
+		if (!$this -> Article_log -> check_exists($data['content']['id'])) {
+			$this -> Article -> update_count_plus($data['content']['id']);
 		}
-		$this -> Community_log -> insert(array('community_id' => $data['content']['id']));
+		$this -> Article_log -> insert(array('community_id' => $data['content']['id']));
 		
 
-		$this -> load -> model('Community_photo');
-		$data['content']['photo'] = $this -> Community_photo -> get_index_photo($data['content']['id']);
+		$this -> load -> model('Article_photo');
+		$data['content']['photo'] = $this -> Article_photo -> get_index_photo($data['content']['id']);
 		
 		return $data;
 /*
@@ -131,25 +129,25 @@ class Communities extends SL_Controller {
 		$this -> form_validation -> set_rules('description', _('description'), 'required|min_length[3]|max_length[60]');
 
 		if ($this -> form_validation -> run() == FAlSE) {
-			$this -> load -> model('Community');
-			$data['content'] = $this -> Community -> get_content($id);
+			$this -> load -> model('Article');
+			$data['content'] = $this -> Article -> get_content($id);
 			
 			$this -> load -> model('Tag');
 			$data['tags'] = $this -> Tag -> get_index_by_taggable_id($data['content']['id']);
 			
-			$this -> load -> model('Community_photo');
-			$data['content']['photo'] = $this -> Community_photo -> get_index_photo($data['content']['id']);
+			$this -> load -> model('Article_photo');
+			$data['content']['photo'] = $this -> Article_photo -> get_index_photo($data['content']['id']);
 			
 			$data['admin']=true;
 			$this -> layout -> add_js('/ckeditor/ckeditor.js');
 			$this -> layout -> add_js('/js/add.js');
-			$this -> layout -> render('communities/edit', array('data' => $data));
+			$this -> layout -> render('articles/edit', array('data' => $data));
 		} else {
-			$this -> load -> model('Community');
+			$this -> load -> model('Article');
 			$data = $this -> input -> post(NULL, TRUE);
 			$data['id']=$id;
 			$data['user_id'] = $this -> session -> userdata('user_id');
-			if ($id = $this -> Community -> update($data)) {
+			if ($id = $this -> Article -> update($data)) {
 
 				$clean['tag'] = explode(',', $data['tag']);
 				foreach ($clean['tag'] as $index => $value) {
@@ -182,7 +180,7 @@ class Communities extends SL_Controller {
 		if ($this -> form_validation -> run() == FAlSE) {
 			$this -> layout -> add_js('/ckeditor/ckeditor.js');
 			$this -> layout -> add_js('/js/add.js');
-			$this -> layout -> render('communities/add', array('data' => array('admin'=>true)));
+			$this -> layout -> render('articles/add', array('data' => array('admin'=>true)));
 		} else {
 			$data = $this -> input -> post(NULL, TRUE);
 
@@ -194,13 +192,13 @@ class Communities extends SL_Controller {
 				$this -> layout -> add_js('/ckeditor/ckeditor.js');
 				$this -> layout -> add_js('/js/add.js');
 				print_r($this -> upload -> display_errors());
-				$this -> layout -> render('communities/add', array('data' => $data,'error' => $this -> upload -> display_errors()));
+				$this -> layout -> render('articles/add', array('data' => $data,'error' => $this -> upload -> display_errors()));
 				return true;
 			}
 
-			$this -> load -> model('Community');
+			$this -> load -> model('Article');
 			$data['user_id'] = $this -> session -> userdata('user_id');
-			if ($id = $this -> Community -> insert($data)) {
+			if ($id = $this -> Article -> insert($data)) {
 
 
 				$clean['tag'] = explode(',', $data['tag']);
@@ -210,10 +208,10 @@ class Communities extends SL_Controller {
 				unset($index);
 				unset($value);
 
-				$this -> load -> model('Community_photo');
+				$this -> load -> model('Article_photo');
 				foreach ($data['photo'] as $index => $value) {
 					$value['community_id']=$id;
-					$this->Community_photo->insert($value);
+					$this->Article_photo->insert($value);
 				}
 
 				$this -> load -> model('Tag');
@@ -232,17 +230,17 @@ class Communities extends SL_Controller {
 	}
 
 	public function confirm_delete($id) {
-		$this -> layout -> render('communities/confirm_delete', array('id' => $id));
+		$this -> layout -> render('articles/confirm_delete', array('id' => $id));
 	}
 
 	public function delete($id) {
-		$this -> load -> model('Community');
-		if ($this -> Community -> delete($id)) {
+		$this -> load -> model('Article');
+		if ($this -> Article -> delete($id)) {
 			$this -> session -> set_flashdata('message', array('type' => 'success', 'message' => 'delete'));
-			redirect('communities');
+			redirect('articles');
 		} else {
 			$this -> session -> set_flashdata('message', array('type' => 'alert', 'message' => 'delete'));
-			redirect('communities');
+			redirect('articles');
 		}
 	}
 	
@@ -261,17 +259,17 @@ class Communities extends SL_Controller {
 		$data=array('result'=>'error');
 
 		if ($this -> form_validation -> run() == TRUE) {
-			$this -> load -> model('Community_recommend_log');
+			$this -> load -> model('Article_recommend_log');
 			$id=$this->input->post('id');
-			if ($this -> Community_recommend_log -> check_exists($id)) {
+			if ($this -> Article_recommend_log -> check_exists($id)) {
 				$message=_('already recommended article');
 				if(!$this->input->is_ajax_request())
 					$this -> session -> set_flashdata('message', array('type' => 'warning', 'message' => $message));
 			} else {
-				$this -> Community_recommend_log -> insert(array('community_id' =>$id));
+				$this -> Article_recommend_log -> insert(array('community_id' =>$id));
 				
-				$this -> load -> model('Community');
-				$this -> Community -> update_recommend_count_plus($id);
+				$this -> load -> model('Article');
+				$this -> Article -> update_recommend_count_plus($id);
 				$message=_('already recommended article');
 				if($this->input->is_ajax_request()) {
 					$data['result']='success';
@@ -290,7 +288,7 @@ class Communities extends SL_Controller {
 	}
 
 	private function _photo_upload() {
-		$config['upload_path'] = './uploads/communities/';
+		$config['upload_path'] = './uploads/articles/';
 		$config['allowed_types'] = 'gif|jpg|jpeg|png';
 		$config['encrypt_name'] = true;
 		//$config['max_size'] = '100';

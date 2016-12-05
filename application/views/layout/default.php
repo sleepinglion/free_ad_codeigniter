@@ -17,7 +17,7 @@
 	<?php echo $Layout->element('header') ?>
 	<?php echo $Layout->element('aside') ?>
 	<div id="mom">
-		<div id="main" class="container">
+		<div id="main" class="container-fluid">
 			<div id="s-search_form_layer">
 				<?php echo $Layout->element('search') ?>
 			</div>

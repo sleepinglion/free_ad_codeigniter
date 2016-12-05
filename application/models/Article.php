@@ -3,9 +3,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once 'SL.php';
 
-class Community extends SL_Model {
-	protected $table = 'communities';
-	protected $content_table = 'community_contents';
+class Article extends SL_Model {
+	protected $table = 'articles';
+	protected $content_table = 'article_contents';
 
 	private function get_tag_search() {
 		$this -> pdo -> select($this -> table . '.*,tags.name,tags.taggings_count');
@@ -93,22 +93,23 @@ class Community extends SL_Model {
 		$this -> pdo -> order_by($this -> table . '.id', 'desc');
 		$query = $this -> pdo -> get($this -> table, $per_page, $page);
 		$result['list'] = $query -> result_array();
+		
 		return $result;
 	}
 
 	public function get_comments($id) {
 		
-		$this -> pdo -> where(array('community_id' => $id));
-		$result['total'] = $this -> pdo -> count_all_results('community_comments');
+		$this -> pdo -> where(array('article_id' => $id));
+		$result['total'] = $this -> pdo -> count_all_results('article_comments');
 
 		if (!$result['total'])
 			return $result;
 
-		$this -> pdo -> select('community_comments.*,polls.title,users.nickname,users.photo');
-		$this -> pdo -> from('community_comments');
-		$this -> pdo -> join('polls', 'community_comments.poll_id = polls.id');
-		$this -> pdo -> join('users', 'community_comments.user_id = users.id');
-		$this -> pdo -> where(array('community_comments.community_id' => $id));
+		$this -> pdo -> select('article_comments.*,polls.title,users.nickname,users.photo');
+		$this -> pdo -> from('article_comments');
+		$this -> pdo -> join('polls', 'article_comments.poll_id = polls.id');
+		$this -> pdo -> join('users', 'article_comments.user_id = users.id');
+		$this -> pdo -> where(array('article_comments.article_id' => $id));
 		$query = $this -> pdo -> get();
 		$result['list'] = $query -> result_array();
 
@@ -120,17 +121,17 @@ class Community extends SL_Model {
 	}
 
 	public function get_comment_comments($comment_id) {
-		$this -> pdo -> where(array('community_comment_id' => $comment_id));
-		$result['total'] = $this -> pdo -> count_all('community_comment_comments');
+		$this -> pdo -> where(array('article_comment_id' => $comment_id));
+		$result['total'] = $this -> pdo -> count_all('article_comment_comments');
 
 		if (!$result['total'])
 			return $result;
 
-		$this -> pdo -> select('community_comment_comments.*,polls.title,users.nickname,users.photo');
-		$this -> pdo -> from('community_comment_comments');
-		$this -> pdo -> join('polls', 'community_comment_comments.poll_id = polls.id');
-		$this -> pdo -> join('users', 'community_comment_comments.user_id = users.id');
-		$this -> pdo -> where(array('community_comment_id' => $comment_id));
+		$this -> pdo -> select('article_comment_comments.*,polls.title,users.nickname,users.photo');
+		$this -> pdo -> from('article_comment_comments');
+		$this -> pdo -> join('polls', 'article_comment_comments.poll_id = polls.id');
+		$this -> pdo -> join('users', 'article_comment_comments.user_id = users.id');
+		$this -> pdo -> where(array('article_comment_id' => $comment_id));
 		$query = $this -> pdo -> get();
 		$result['list'] = $query -> result_array();
 
